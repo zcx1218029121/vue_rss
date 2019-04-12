@@ -37,7 +37,7 @@ export default {
     'ele-header': header
   },
   created () {
-    // 回调方法 当加载的时候————
+    // 生命周期 当加载的时候————
     axios.get('/api2/seller').then((response) => {
       const result = response.data
       console.log(result.data)

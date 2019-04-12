@@ -38,6 +38,7 @@
       <img :src="seller.avatar">
     </div>
     <transition name="fade">
+      <!--详情页 -->
       <div class="detail"
            v-show="detailShow"
            @click="showDetail(false)">
@@ -81,7 +82,11 @@
   </div>
 </template>
 <script>
+import star from '../ratings/ratings'
 export default {
+  components: {
+    star
+  },
   props: ['seller'],
   created () {
     this.classMap = ['decrease', 'discount', 'guarantee', 'invoice', 'special']
@@ -179,7 +184,9 @@ root = '../../../static/drawable/';
         }
 
         .name {
-          width: 70px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
           transition: left 10s linear;
           margin-left: 6px;
           font-size: 16px;
