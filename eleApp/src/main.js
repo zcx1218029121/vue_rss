@@ -3,10 +3,14 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import './mock/mockServer' // init mock
 import './common/stylus/fonts.styl'
-Vue.config.productionTip = false
+import BootstrapVue from 'bootstrap-vue'
 
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+Vue.config.productionTip = false
+Vue.use(BootstrapVue)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
@@ -15,4 +19,29 @@ new Vue({
     App
   },
   template: '<App/>'
+
 })
+// 全局导航钩子
+router.beforeEach((to, from, next) => {
+  if (to.meta.requireAuth) {
+    if (!isEmptyObject(localStorage.getItem('token'))) {
+      next()
+    } else {
+      next({
+        path: '/',
+        query: {
+          redirect: to.fullPath
+        }
+      })
+    }
+  } else {
+    next()
+  }
+})
+
+function isEmptyObject (obj) {
+  for (var key in obj) {
+    return false
+  }
+  return true
+}

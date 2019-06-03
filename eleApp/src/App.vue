@@ -1,73 +1,101 @@
 <template>
-  <div>
-    <ele-header :seller="seller"></ele-header>
-    <div class="tab">
-      <div class="tab-item">
-        <router-link to="/goods"
-                     active-class="active">商品</router-link>
-      </div>
-      <div class="tab-item">
-        <router-link to="/ratings"
-                     active-class="active">评价</router-link>
-      </div>
-      <div class="tab-item">
-        <router-link to="/seller"
-                     active-class="active">商家</router-link>
-      </div>
-    </div>
-    <keep-alive>
-      <router-view :seller="seller"
-                   active-class="active"></router-view>
-    </keep-alive>
-  </div>
+
+  <router-view active-class="active"></router-view>
+
 </template>
 <script>
-
-import header from './components/header/header'
-import axios from 'axios'
-
 export default {
-  name: 'App',
-  data () {
-    return {
-      seller: {}
-    }
-  },
-  components: {
-    'ele-header': header
-  },
-  created () {
-    // 生命周期 当加载的时候————
-    axios.get('/api2/seller').then((response) => {
-      const result = response.data
-      console.log(result.data)
-      if (result.code === 0) {
-        this.seller = result.data
-      }
-    }
-    )
-  }
+  name: 'App'
 }
 </script>
-<style lang="stylus" rel="stylesheet/stylus">
-@import './common/stylus/mixins.styl';
+<style>
+html {
+  box-sizing: border-box;
+}
 
-// css import
-.tab {
-  height: 40px;
-  line-height: 40px;
-  display: flex;
-  border-1px(rgba(7, 17, 27, 0.1));
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
 
-  .tab-item {
-    flex: 1;
-    font-size: 14px;
-    color: rgb(77, 85, 93);
-    text-align: center;
+html,
+body {
+  font-family: "Roboto", helvetica, arial, sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  font-size: 62.5%;
+}
 
-    .active {
-      color: red;
-    }
-  }
+body {
+  background: #fafafa;
+  color: #333;
+  /*Sometimes fonts don't display optimally on all devices*/
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  /*font-weight:300;*/
+}
+
+a,
+.user {
+  text-decoration: none;
+  color: #88d;
+}
+
+a:hover {
+  color: rgb(100, 197, 100);
+}
+
+a.button {
+  display: inline-block;
+  text-align: center;
+  padding: 14px 24px;
+  font-weight: 600;
+  cursor: pointer;
+  line-height: 1;
+  background: #88d;
+}
+
+p,
+li,
+time {
+  font-size: 1.6rem;
+  line-height: 3.2rem;
+  margin: 0 0 2.4rem;
+}
+
+[class*="card-"] h1,
+[class*="card-"] h2 {
+  font: 600 2.4rem/3.2rem "PT Serif", palatino, times, serif;
+  margin: 0 0 0.8rem;
+  padding: 0;
+}
+
+figure {
+  position: relative;
+  margin: 0;
+  line-height: 0;
+}
+
+img {
+  border: 0;
+  height: auto;
+  max-height: 500px;
+  max-width: 100%;
+}
+
+img:hover {
+  filter: alpha(opacity=9000);
+  opacity: 0.9;
+  filter: alpha(opacity=90);
+}
+
+article,
+figure,
+footer,
+header,
+main {
+  display: block;
 }
 </style>

@@ -1,0 +1,2004 @@
+{
+    "status": 0,
+    "data": {
+        "12306": {
+            "routes": [
+                "/12306/zxdt/:id?"
+            ]
+        },
+        "test": {
+            "routes": [
+                "/test/:id"
+            ]
+        },
+        "rsshub": {
+            "routes": [
+                "/rsshub/rss"
+            ]
+        },
+        "bilibili": {
+            "routes": [
+                "/bilibili/user/video/:uid",
+                "/bilibili/user/article/:uid",
+                "/bilibili/user/fav/:uid",
+                "/bilibili/user/coin/:uid",
+                "/bilibili/user/dynamic/:uid",
+                "/bilibili/user/followers/:uid",
+                "/bilibili/user/followings/:uid",
+                "/bilibili/partion/:tid",
+                "/bilibili/partion/ranking/:tid/:days?",
+                "/bilibili/bangumi/:seasonid",
+                "/bilibili/bangumi/media/:mediaid",
+                "/bilibili/video/page/:aid",
+                "/bilibili/video/reply/:aid",
+                "/bilibili/video/danmaku/:aid/:pid?",
+                "/bilibili/link/news/:product",
+                "/bilibili/live/room/:roomID",
+                "/bilibili/live/search/:key/:order",
+                "/bilibili/live/area/:areaID/:order",
+                "/bilibili/fav/:uid/:fid",
+                "/bilibili/blackboard",
+                "/bilibili/mall/new",
+                "/bilibili/mall/ip/:id",
+                "/bilibili/ranking/:rid?/:day?/:arc_type?",
+                "/bilibili/user/channel/:uid/:cid",
+                "/bilibili/topic/:topic",
+                "/bilibili/audio/:id",
+                "/bilibili/vsearch/:kw/:order?",
+                "/bilibili/followings/video/:uid"
+            ]
+        },
+        "bangumi": {
+            "routes": [
+                "/bangumi/calendar/today",
+                "/bangumi/subject/:id/:type",
+                "/bangumi/person/:id",
+                "/bangumi/topic/:id",
+                "/bangumi/group/:id",
+                "/bangumi/subject/:id"
+            ]
+        },
+        "weibo": {
+            "routes": [
+                "/weibo/user/:uid",
+                "/weibo/user2/:uid",
+                "/weibo/keyword/:keyword",
+                "/weibo/search/hot",
+                "/weibo/super_index/:id"
+            ]
+        },
+        "tieba": {
+            "routes": [
+                "/tieba/forum/:kw",
+                "/tieba/forum/good/:kw/:cid?",
+                "/tieba/post/:id",
+                "/tieba/post/lz/:id"
+            ]
+        },
+        "ncm": {
+            "routes": [
+                "/ncm/playlist/:id",
+                "/ncm/user/playlist/:uid",
+                "/ncm/artist/:id",
+                "/ncm/djradio/:id"
+            ]
+        },
+        "juejin": {
+            "routes": [
+                "/juejin/category/:category",
+                "/juejin/tag/:tag",
+                "/juejin/trending/:category/:type",
+                "/juejin/books",
+                "/juejin/pins",
+                "/juejin/posts/:id",
+                "/juejin/collections/:userId",
+                "/juejin/collection/:collectionId",
+                "/juejin/shares/:userId"
+            ]
+        },
+        "ziroom": {
+            "routes": [
+                "/ziroom/room/:city/:iswhole/:room/:keyword"
+            ]
+        },
+        "express": {
+            "routes": [
+                "/express/:company/:number"
+            ]
+        },
+        "jianshu": {
+            "routes": [
+                "/jianshu/home",
+                "/jianshu/trending/:timeframe",
+                "/jianshu/collection/:id",
+                "/jianshu/user/:id"
+            ]
+        },
+        "zhihu": {
+            "routes": [
+                "/zhihu/collection/:id",
+                "/zhihu/people/activities/:id",
+                "/zhihu/people/answers/:id",
+                "/zhihu/zhuanlan/:id",
+                "/zhihu/daily",
+                "/zhihu/hotlist",
+                "/zhihu/pin/hotlist",
+                "/zhihu/question/:questionId",
+                "/zhihu/topic/:topicId",
+                "/zhihu/people/pins/:id",
+                "/zhihu/bookstore/newest",
+                "/zhihu/pin/daily",
+                "/zhihu/weekly"
+            ]
+        },
+        "mzitu": {
+            "routes": [
+                "/mzitu/home/:type?",
+                "/mzitu/tags",
+                "/mzitu/category/:category",
+                "/mzitu/post/:id",
+                "/mzitu/tag/:tag"
+            ]
+        },
+        "pixiv": {
+            "routes": [
+                "/pixiv/user/bookmarks/:id",
+                "/pixiv/user/:id/",
+                "/pixiv/ranking/:mode/:date?",
+                "/pixiv/search/:keyword/:order?"
+            ]
+        },
+        "douban": {
+            "routes": [
+                "/douban/movie/playing",
+                "/douban/movie/playing/:score",
+                "/douban/movie/playing/:score/:city",
+                "/douban/movie/later",
+                "/douban/movie/ustop",
+                "/douban/group/:groupid",
+                "/douban/explore",
+                "/douban/music/latest/:area?",
+                "/douban/book/latest",
+                "/douban/event/hot/:locationId",
+                "/douban/commercialpress/latest",
+                "/douban/bookstore",
+                "/douban/book/rank/:type",
+                "/douban/doulist/:id",
+                "/douban/explore/column/:id",
+                "/douban/people/:userid/status",
+                "/douban/topic/:id/:sort?"
+            ]
+        },
+        "jandan": {
+            "routes": [
+                "/jandan/:sub_model"
+            ]
+        },
+        "dapenti": {
+            "routes": [
+                "/dapenti/tugua",
+                "/dapenti/subject/:id"
+            ]
+        },
+        "dockone": {
+            "routes": [
+                "/dockone/weekly"
+            ]
+        },
+        "toutiao": {
+            "routes": [
+                "/toutiao/today",
+                "/toutiao/user/:id"
+            ]
+        },
+        "zcfy": {
+            "routes": [
+                "/zcfy",
+                "/zcfy/index",
+                "/zcfy/hot"
+            ]
+        },
+        "jinritoutiao": {
+            "routes": [
+                "/jinritoutiao/keyword/:keyword"
+            ]
+        },
+        "disqus": {
+            "routes": [
+                "/disqus/posts/:forum"
+            ]
+        },
+        "twitter": {
+            "routes": [
+                "/twitter/user/:id",
+                "/twitter/list/:id/:name",
+                "/twitter/likes/:id"
+            ]
+        },
+        "instagram": {
+            "routes": [
+                "/instagram/user/:id",
+                "/instagram/tag/:tag"
+            ]
+        },
+        "youtube": {
+            "routes": [
+                "/youtube/user/:username/:embed?",
+                "/youtube/channel/:id/:embed?",
+                "/youtube/playlist/:id/:embed?"
+            ]
+        },
+        "jike": {
+            "routes": [
+                "/jike/topic/:id",
+                "/jike/topic/text/:id",
+                "/jike/topic/square/:id",
+                "/jike/user/:id",
+                "/jike/daily"
+            ]
+        },
+        "geektime": {
+            "routes": [
+                "/geektime/column/:cid",
+                "/geektime/news"
+            ]
+        },
+        "jiemian": {
+            "routes": [
+                "/jiemian/list/:cid"
+            ]
+        },
+        "qdaily": {
+            "routes": [
+                "/qdaily/column/:id",
+                "/qdaily/category/:id",
+                "/qdaily/tag/:id",
+                "/qdaily/notch/posts",
+                "/qdaily/notch/explore/:id"
+            ]
+        },
+        "iqiyi": {
+            "routes": [
+                "/iqiyi/dongman/:id"
+            ]
+        },
+        "infzm": {
+            "routes": [
+                "/infzm/:id"
+            ]
+        },
+        "dribbble": {
+            "routes": [
+                "/dribbble/popular/:timeframe?",
+                "/dribbble/user/:name",
+                "/dribbble/keyword/:keyword"
+            ]
+        },
+        "douyu": {
+            "routes": [
+                "/douyu/room/:id"
+            ]
+        },
+        "huya": {
+            "routes": [
+                "/huya/live/:id"
+            ]
+        },
+        "kingkong": {
+            "routes": [
+                "/kingkong/room/:id"
+            ]
+        },
+        "v2ex": {
+            "routes": [
+                "/v2ex/topics/:type"
+            ]
+        },
+        "telegram": {
+            "routes": [
+                "/telegram/channel/:username",
+                "/telegram/stickerpack/:name"
+            ]
+        },
+        "readhub": {
+            "routes": [
+                "/readhub/category/:category"
+            ]
+        },
+        "github": {
+            "routes": [
+                "/github/repos/:user",
+                "/github/trending/:since/:language?",
+                "/github/issue/:user/:repo",
+                "/github/pull/:user/:repo",
+                "/github/user/followers/:user",
+                "/github/stars/:user/:repo",
+                "/github/search/:query/:sort?/:order?",
+                "/github/branches/:user/:repo",
+                "/github/file/:user/:repo/:branch/:filepath+"
+            ]
+        },
+        "fdroid": {
+            "routes": [
+                "/fdroid/apprelease/:app"
+            ]
+        },
+        "konachan": {
+            "routes": [
+                "/konachan/post/popular_recent",
+                "/konachan/post/popular_recent/:period"
+            ]
+        },
+        "konachan.com": {
+            "routes": [
+                "/konachan.com/post/popular_recent",
+                "/konachan.com/post/popular_recent/:period"
+            ]
+        },
+        "konachan.net": {
+            "routes": [
+                "/konachan.net/post/popular_recent",
+                "/konachan.net/post/popular_recent/:period"
+            ]
+        },
+        "yande.re": {
+            "routes": [
+                "/yande.re/post/popular_recent",
+                "/yande.re/post/popular_recent/:period"
+            ]
+        },
+        "nytimes": {
+            "routes": [
+                "/nytimes/morning_post",
+                "/nytimes/:lang?"
+            ]
+        },
+        "3dm": {
+            "routes": [
+                "/3dm/:name/:type",
+                "/3dm/news"
+            ]
+        },
+        "lfsyd": {
+            "routes": [
+                "/lfsyd/:typecode"
+            ]
+        },
+        "ximalaya": {
+            "routes": [
+                "/ximalaya/album/:id/:all?"
+            ]
+        },
+        "eztv": {
+            "routes": [
+                "/eztv/torrents/:imdb_id"
+            ]
+        },
+        "smzdm": {
+            "routes": [
+                "/smzdm/keyword/:keyword",
+                "/smzdm/ranking/:rank_type/:rank_id/:hour",
+                "/smzdm/haowen/:day?",
+                "/smzdm/haowen/fenlei/:name/:sort?"
+            ]
+        },
+        "bjnews": {
+            "routes": [
+                "/bjnews/:cat"
+            ]
+        },
+        "tingshuitz": {
+            "routes": [
+                "/tingshuitz/hangzhou",
+                "/tingshuitz/xiaoshan",
+                "/tingshuitz/dalian",
+                "/tingshuitz/guangzhou",
+                "/tingshuitz/dongguan",
+                "/tingshuitz/xian",
+                "/tingshuitz/yangjiang",
+                "/tingshuitz/nanjing"
+            ]
+        },
+        "miui": {
+            "routes": [
+                "/miui/:device/:type?/:region?"
+            ]
+        },
+        "mihoyo": {
+            "routes": [
+                "/mihoyo/bh3/:type",
+                "/mihoyo/bh2/:type"
+            ]
+        },
+        "cctv": {
+            "routes": [
+                "/cctv/:category"
+            ]
+        },
+        "caixin": {
+            "routes": [
+                "/caixin/blog/:column",
+                "/caixin/:column/:category"
+            ]
+        },
+        "t66y": {
+            "routes": [
+                "/t66y/post/:tid",
+                "/t66y/:id/:type?"
+            ]
+        },
+        "sexinsex": {
+            "routes": [
+                "/sexinsex/:id/:type?"
+            ]
+        },
+        "gcores": {
+            "routes": [
+                "/gcores/category/:category"
+            ]
+        },
+        "natgeo": {
+            "routes": [
+                "/natgeo/dailyphoto",
+                "/natgeo/:cat/:type?"
+            ]
+        },
+        "one": {
+            "routes": [
+                "/one"
+            ]
+        },
+        "firefox": {
+            "routes": [
+                "/firefox/release/:platform"
+            ]
+        },
+        "thunderbird": {
+            "routes": [
+                "/thunderbird/release"
+            ]
+        },
+        "tuicool": {
+            "routes": [
+                "/tuicool/mags/:type"
+            ]
+        },
+        "hexo": {
+            "routes": [
+                "/hexo/next/:url",
+                "/hexo/yilia/:url"
+            ]
+        },
+        "mi": {
+            "routes": [
+                "/mi/crowdfunding",
+                "/mi/youpin/crowdfunding",
+                "/mi/youpin/new"
+            ]
+        },
+        "keep": {
+            "routes": [
+                "/keep/user/:id"
+            ]
+        },
+        "qidian": {
+            "routes": [
+                "/qidian/chapter/:id",
+                "/qidian/forum/:id",
+                "/qidian/free/:type?",
+                "/qidian/free-next/:type?"
+            ]
+        },
+        "zongheng": {
+            "routes": [
+                "/zongheng/chapter/:id"
+            ]
+        },
+        "ciweimao": {
+            "routes": [
+                "/ciweimao/chapter/:id"
+            ]
+        },
+        "namoc": {
+            "routes": [
+                "/namoc/announcement",
+                "/namoc/news",
+                "/namoc/media",
+                "/namoc/exhibition",
+                "/namoc/specials"
+            ]
+        },
+        "dongqiudi": {
+            "routes": [
+                "/dongqiudi/daily",
+                "/dongqiudi/result/:team",
+                "/dongqiudi/team_news/:team",
+                "/dongqiudi/player_news/:id",
+                "/dongqiudi/special/:id",
+                "/dongqiudi/top_news"
+            ]
+        },
+        "wikipedia": {
+            "routes": [
+                "/wikipedia/mainland"
+            ]
+        },
+        "un": {
+            "routes": [
+                "/un/scveto"
+            ]
+        },
+        "xueqiu": {
+            "routes": [
+                "/xueqiu/user/:id/:type?",
+                "/xueqiu/favorite/:id",
+                "/xueqiu/user_stock/:id",
+                "/xueqiu/fund/:id",
+                "/xueqiu/stock_info/:id/:type?"
+            ]
+        },
+        "greasyfork": {
+            "routes": [
+                "/greasyfork/:language/:domain?"
+            ]
+        },
+        "linkedkeeper": {
+            "routes": [
+                "/linkedkeeper/:type/:id?"
+            ]
+        },
+        "oschina": {
+            "routes": [
+                "/oschina/news/:category?",
+                "/oschina/user/:id",
+                "/oschina/u/:id"
+            ]
+        },
+        "aqk": {
+            "routes": [
+                "/aqk/vul",
+                "/aqk/:category"
+            ]
+        },
+        "dajia": {
+            "routes": [
+                "/dajia",
+                "/dajia/author/:uid",
+                "/dajia/zhuanlan/:uid"
+            ]
+        },
+        "gameinstitute": {
+            "routes": [
+                "/gameinstitute/community/:tag?"
+            ]
+        },
+        "qcloud": {
+            "routes": [
+                "/qcloud/mlvb/changelog"
+            ]
+        },
+        "tucaoqq": {
+            "routes": [
+                "/tucaoqq/post/:project/:key"
+            ]
+        },
+        "bugly": {
+            "routes": [
+                "/bugly/changelog/:platform"
+            ]
+        },
+        "wechat": {
+            "routes": [
+                "/wechat/wasi/:id",
+                "/wechat/wemp/:id",
+                "/wechat/csm/:id",
+                "/wechat/announce",
+                "/wechat/miniprogram/plugins",
+                "/wechat/tgchannel/:id"
+            ]
+        },
+        "atfd": {
+            "routes": [
+                "/atfd/:locations/:nearby?"
+            ]
+        },
+        "fir": {
+            "routes": [
+                "/fir/update/:id"
+            ]
+        },
+        "nvidia": {
+            "routes": [
+                "/nvidia/webdriverupdate"
+            ]
+        },
+        "google": {
+            "routes": [
+                "/google/scholar/:query",
+                "/google/doodles/:language?"
+            ]
+        },
+        "pigtails": {
+            "routes": [
+                "/pigtails"
+            ]
+        },
+        "imuseum": {
+            "routes": [
+                "/imuseum/:city/:type"
+            ]
+        },
+        "appstore": {
+            "routes": [
+                "/appstore/update/:country/:id",
+                "/appstore/price/:country/:type/:id",
+                "/appstore/iap/:country/:id",
+                "/appstore/xianmian",
+                "/appstore/gofans"
+            ]
+        },
+        "hopper": {
+            "routes": [
+                "/hopper/:lowestOnly/:from/:to?"
+            ]
+        },
+        "mafengwo": {
+            "routes": [
+                "/mafengwo/note/:type"
+            ]
+        },
+        "earthquake": {
+            "routes": [
+                "/earthquake/:region?"
+            ]
+        },
+        "biquge": {
+            "routes": [
+                "/biquge/novel/latestchapter/:id"
+            ]
+        },
+        "uukanshu": {
+            "routes": [
+                "/uukanshu/chapter/:uid"
+            ]
+        },
+        "novel": {
+            "routes": [
+                "/novel/biquge/:id",
+                "/novel/uukanshu/:uid",
+                "/novel/wenxuemi/:id1/:id2",
+                "/novel/booksky/:id"
+            ]
+        },
+        "weatheralarm": {
+            "routes": [
+                "/weatheralarm"
+            ]
+        },
+        "gitlab": {
+            "routes": [
+                "/gitlab/explore/:type"
+            ]
+        },
+        "mygalgame": {
+            "routes": [
+                "/mygalgame"
+            ]
+        },
+        "mmgal": {
+            "routes": [
+                "/mmgal"
+            ]
+        },
+        "sayhuahuo": {
+            "routes": [
+                "/sayhuahuo"
+            ]
+        },
+        "zdfx": {
+            "routes": [
+                "/zdfx"
+            ]
+        },
+        "bit": {
+            "routes": [
+                "/bit/jwc",
+                "/bit/cs"
+            ]
+        },
+        "dpu": {
+            "routes": [
+                "/dpu/jiaowu/news/:type?",
+                "/dpu/wlfw/news/:type?"
+            ]
+        },
+        "seu": {
+            "routes": [
+                "/seu/radio/academic",
+                "/seu/yzb/:type",
+                "/seu/cse/:type?"
+            ]
+        },
+        "nuaa": {
+            "routes": [
+                "/nuaa/jwc/:type?",
+                "/nuaa/cs/:type?",
+                "/nuaa/yjsy/:type?"
+            ]
+        },
+        "hit": {
+            "routes": [
+                "/hit/jwc",
+                "/hit/today/:category"
+            ]
+        },
+        "shanghaitech": {
+            "routes": [
+                "/shanghaitech/sist/activity"
+            ]
+        },
+        "sjtu": {
+            "routes": [
+                "/sjtu/seiee/academic",
+                "/sjtu/seiee/bjwb/:type",
+                "/sjtu/seiee/xsb/:type?",
+                "/sjtu/gs/tzgg/:type?"
+            ]
+        },
+        "ju": {
+            "routes": [
+                "/ju/jwc/:type?"
+            ]
+        },
+        "pku": {
+            "routes": [
+                "/pku/eecs/:type?"
+            ]
+        },
+        "shmtu": {
+            "routes": [
+                "/shmtu/www/:type",
+                "/shmtu/jwc/:type"
+            ]
+        },
+        "swust": {
+            "routes": [
+                "/swust/jwc/news",
+                "/swust/jwc/notice/:type?",
+                "/swust/cs/:type?"
+            ]
+        },
+        "scnu": {
+            "routes": [
+                "/scnu/jw",
+                "/scnu/library",
+                "/scnu/cs/match"
+            ]
+        },
+        "cas": {
+            "routes": [
+                "/cas/sim/academic"
+            ]
+        },
+        "cuc": {
+            "routes": [
+                "/cuc/yz"
+            ]
+        },
+        "njupt": {
+            "routes": [
+                "/njupt/jwc/:type?"
+            ]
+        },
+        "nchu": {
+            "routes": [
+                "/nchu/jwc/:type?"
+            ]
+        },
+        "heu": {
+            "routes": [
+                "/heu/ugs/news/:author?/:category?"
+            ]
+        },
+        "cqu": {
+            "routes": [
+                "/cqu/jwc/announcement"
+            ]
+        },
+        "nuist": {
+            "routes": [
+                "/nuist/bulletin/:category?",
+                "/nuist/jwc/:category?",
+                "/nuist/yjs/:category?",
+                "/nuist/xgc",
+                "/nuist/scs/:category?",
+                "/nuist/lib",
+                "/nuist/sese/:category?",
+                "/nuist/cas/:category?"
+            ]
+        },
+        "cuit": {
+            "routes": [
+                "/cuit/cxxww/:type?"
+            ]
+        },
+        "cqust": {
+            "routes": [
+                "/cqust/jw/:type?",
+                "/cqust/lib/:type?"
+            ]
+        },
+        "cczu": {
+            "routes": [
+                "/cczu/jwc/:category?",
+                "/cczu/news/:category?"
+            ]
+        },
+        "njust": {
+            "routes": [
+                "/njust/jwc/:type",
+                "/njust/cwc/:type",
+                "/njust/gs/:type"
+            ]
+        },
+        "sctu": {
+            "routes": [
+                "/sctu/xgxy",
+                "/sctu/xgxy/:id",
+                "/sctu/jwc/:type?",
+                "/sctu/jwc/:type/:id"
+            ]
+        },
+        "uestc": {
+            "routes": [
+                "/uestc/jwc/:type?",
+                "/uestc/news/:type?"
+            ]
+        },
+        "kmust": {
+            "routes": [
+                "/kmust/jwc/:type?",
+                "/kmust/job/careers/:type?",
+                "/kmust/job/jobfairs"
+            ]
+        },
+        "hust": {
+            "routes": [
+                "/hust/auto/notice/:type?",
+                "/hust/auto/news/",
+                "/hust/aia/news/",
+                "/hust/aia/notice/:type?"
+            ]
+        },
+        "sdu": {
+            "routes": [
+                "/sdu/grad/academic",
+                "/sdu/sc/:type?",
+                "/sdu/cmse/:type?",
+                "/sdu/mech/:type?",
+                "/sdu/epe/:type?"
+            ]
+        },
+        "dlu": {
+            "routes": [
+                "/dlu/jiaowu/news"
+            ]
+        },
+        "dgut": {
+            "routes": [
+                "/dgut/jwc/:type?",
+                "/dgut/xsc/:type?"
+            ]
+        },
+        "tju": {
+            "routes": [
+                "/tju/sse/:type?"
+            ]
+        },
+        "scut": {
+            "routes": [
+                "/scut/jwc/:category?"
+            ]
+        },
+        "wzbc": {
+            "routes": [
+                "/wzbc/:type?"
+            ]
+        },
+        "henu": {
+            "routes": [
+                "/henu/:type?"
+            ]
+        },
+        "nku": {
+            "routes": [
+                "/nku/jwc/:type?"
+            ]
+        },
+        "buaa": {
+            "routes": [
+                "/buaa/news/:type"
+            ]
+        },
+        "shu": {
+            "routes": [
+                "/shu/jwc/:type?"
+            ]
+        },
+        "ustb": {
+            "routes": [
+                "/ustb/tj/news/:type?"
+            ]
+        },
+        "szu": {
+            "routes": [
+                "/szu/yz/:type?"
+            ]
+        },
+        "ifanr": {
+            "routes": [
+                "/ifanr/:channel?"
+            ]
+        },
+        "guokr": {
+            "routes": [
+                "/guokr/scientific"
+            ]
+        },
+        "zaobao": {
+            "routes": [
+                "/zaobao/realtime/:type?",
+                "/zaobao/znews/:type?"
+            ]
+        },
+        "apple": {
+            "routes": [
+                "/apple/exchange_repair/:country?"
+            ]
+        },
+        "curseforge": {
+            "routes": [
+                "/curseforge/files/:project",
+                "/curseforge/:gameid/:catagoryid/:projectid/files"
+            ]
+        },
+        "douyin": {
+            "routes": [
+                "/douyin/user/:id",
+                "/douyin/like/:id"
+            ]
+        },
+        "sspai": {
+            "routes": [
+                "/sspai/series",
+                "/sspai/shortcuts",
+                "/sspai/matrix",
+                "/sspai/column/:id",
+                "/sspai/author/:id",
+                "/sspai/topics",
+                "/sspai/topic/:id"
+            ]
+        },
+        "iplay": {
+            "routes": [
+                "/iplay/home"
+            ]
+        },
+        "xclient": {
+            "routes": [
+                "/xclient/app/:name"
+            ]
+        },
+        "embassy": {
+            "routes": [
+                "/embassy/:country/:city?"
+            ]
+        },
+        "thepaper": {
+            "routes": [
+                "/thepaper/featured",
+                "/thepaper/channel/:id"
+            ]
+        },
+        "dysfz": {
+            "routes": [
+                "/dysfz",
+                "/dysfz/index"
+            ]
+        },
+        "kirara": {
+            "routes": [
+                "/kirara/news"
+            ]
+        },
+        "dytt": {
+            "routes": [
+                "/dytt",
+                "/dytt/index"
+            ]
+        },
+        "rs05": {
+            "routes": [
+                "/rs05/rs05"
+            ]
+        },
+        "qutoutiao": {
+            "routes": [
+                "/qutoutiao/category/:cid"
+            ]
+        },
+        "nhk": {
+            "routes": [
+                "/nhk/news_web_easy"
+            ]
+        },
+        "bbc": {
+            "routes": [
+                "/bbc/:channel?"
+            ]
+        },
+        "ft": {
+            "routes": [
+                "/ft/:language/:channel?"
+            ]
+        },
+        "verge": {
+            "routes": [
+                "/verge"
+            ]
+        },
+        "pediy": {
+            "routes": [
+                "/pediy/topic/:category?/:type?"
+            ]
+        },
+        "guanzhi": {
+            "routes": [
+                "/guanzhi"
+            ]
+        },
+        "dwnews": {
+            "routes": [
+                "/dwnews/yaowen/:region?",
+                "/dwnews/rank/:type/:range"
+            ]
+        },
+        "miniapp": {
+            "routes": [
+                "/miniapp/article/:category",
+                "/miniapp/store/newest"
+            ]
+        },
+        "houxu": {
+            "routes": [
+                "/houxu/live/:id/:timeline?",
+                "/houxu/events",
+                "/houxu/lives/:type"
+            ]
+        },
+        "laosiji": {
+            "routes": [
+                "/laosiji/hot",
+                "/laosiji/feed",
+                "/laosiji/hotshow/:id"
+            ]
+        },
+        "99percentinvisible": {
+            "routes": [
+                "/99percentinvisible/transcript"
+            ]
+        },
+        "aozora": {
+            "routes": [
+                "/aozora/newbook/:count?"
+            ]
+        },
+        "solidot": {
+            "routes": [
+                "/solidot/:type?"
+            ]
+        },
+        "parcel": {
+            "routes": [
+                "/parcel/hermesuk/:tracking"
+            ]
+        },
+        "dgtle": {
+            "routes": [
+                "/dgtle/trade/:typeId?"
+            ]
+        },
+        "chouti": {
+            "routes": [
+                "/chouti/:subject?"
+            ]
+        },
+        "xidian": {
+            "routes": [
+                "/xidian/jwc/:category?"
+            ]
+        },
+        "westore": {
+            "routes": [
+                "/westore/new"
+            ]
+        },
+        "youku": {
+            "routes": [
+                "/youku/channel/:channelId/:embed?"
+            ]
+        },
+        "oilprice": {
+            "routes": [
+                "/oilprice/:area"
+            ]
+        },
+        "nhentai": {
+            "routes": [
+                "/nhentai/search/:keyword/:mode?",
+                "/nhentai/:key/:keyword/:mode?"
+            ]
+        },
+        "ltaaa": {
+            "routes": [
+                "/ltaaa/:type?"
+            ]
+        },
+        "acfun": {
+            "routes": [
+                "/acfun/bangumi/:id"
+            ]
+        },
+        "autotrader": {
+            "routes": [
+                "/autotrader/:query"
+            ]
+        },
+        "geekpark": {
+            "routes": [
+                "/geekpark/breakingnews"
+            ]
+        },
+        "baidu": {
+            "routes": [
+                "/baidu/doodles",
+                "/baidu/topwords/:boardId?"
+            ]
+        },
+        "sogou": {
+            "routes": [
+                "/sogou/doodles"
+            ]
+        },
+        "hko": {
+            "routes": [
+                "/hko/weather"
+            ]
+        },
+        "sankakucomplex": {
+            "routes": [
+                "/sankakucomplex/post"
+            ]
+        },
+        "blogread": {
+            "routes": [
+                "/blogread/newest"
+            ]
+        },
+        "gnn": {
+            "routes": [
+                "/gnn/gnn"
+            ]
+        },
+        "a9vg": {
+            "routes": [
+                "/a9vg/a9vg"
+            ]
+        },
+        "itjuzi": {
+            "routes": [
+                "/itjuzi/invest",
+                "/itjuzi/merge"
+            ]
+        },
+        "tanwu": {
+            "routes": [
+                "/tanwu/products"
+            ]
+        },
+        "gitchat": {
+            "routes": [
+                "/gitchat/newest"
+            ]
+        },
+        "guardian": {
+            "routes": [
+                "/guardian/:type"
+            ]
+        },
+        "xiachufang": {
+            "routes": [
+                "/xiachufang/user/cooked/:id",
+                "/xiachufang/user/created/:id",
+                "/xiachufang/popular/:timeframe?"
+            ]
+        },
+        "eeo": {
+            "routes": [
+                "/eeo/:category?"
+            ]
+        },
+        "tencentvideo": {
+            "routes": [
+                "/tencentvideo/playlist/:id"
+            ]
+        },
+        "manhuagui": {
+            "routes": [
+                "/manhuagui/comic/:id"
+            ]
+        },
+        "cartoonmad": {
+            "routes": [
+                "/cartoonmad/comic/:id"
+            ]
+        },
+        "vol": {
+            "routes": [
+                "/vol/:mode?"
+            ]
+        },
+        "dongmanmanhua": {
+            "routes": [
+                "/dongmanmanhua/comic/:category/:name/:id"
+            ]
+        },
+        "tits-guru": {
+            "routes": [
+                "/tits-guru/home",
+                "/tits-guru/daily",
+                "/tits-guru/category/:type",
+                "/tits-guru/model/:name"
+            ]
+        },
+        "typora": {
+            "routes": [
+                "/typora/changelog"
+            ]
+        },
+        "tssstatus": {
+            "routes": [
+                "/tssstatus/:board/:build"
+            ]
+        },
+        "anime1": {
+            "routes": [
+                "/anime1/anime/:time/:name",
+                "/anime1/search/:keyword"
+            ]
+        },
+        "gitea": {
+            "routes": [
+                "/gitea/blog"
+            ]
+        },
+        "idownloadblog": {
+            "routes": [
+                "/idownloadblog"
+            ]
+        },
+        "9to5": {
+            "routes": [
+                "/9to5/:type"
+            ]
+        },
+        "testerhome": {
+            "routes": [
+                "/testerhome/newest"
+            ]
+        },
+        "weseepro": {
+            "routes": [
+                "/weseepro/newest",
+                "/weseepro/newest-direct",
+                "/weseepro/circle"
+            ]
+        },
+        "coolbuy": {
+            "routes": [
+                "/coolbuy/newest"
+            ]
+        },
+        "nga": {
+            "routes": [
+                "/nga/forum/:fid",
+                "/nga/post/:tid"
+            ]
+        },
+        "javbus": {
+            "routes": [
+                "/javbus/home",
+                "/javbus/genre/:gid",
+                "/javbus/star/:sid",
+                "/javbus/series/:seriesid",
+                "/javbus/uncensored/home",
+                "/javbus/uncensored/genre/:gid",
+                "/javbus/uncensored/star/:sid",
+                "/javbus/uncensored/series/:seriesid",
+                "/javbus/western/home",
+                "/javbus/western/genre/:gid",
+                "/javbus/western/star/:sid",
+                "/javbus/western/series/:seriesid"
+            ]
+        },
+        "sysu": {
+            "routes": [
+                "/sysu/sdcs"
+            ]
+        },
+        "anigamer": {
+            "routes": [
+                "/anigamer/new_anime",
+                "/anigamer/anime/:sn"
+            ]
+        },
+        "apkpure": {
+            "routes": [
+                "/apkpure/versions/:region/:pkg"
+            ]
+        },
+        "dbmv": {
+            "routes": [
+                "/dbmv/:category?"
+            ]
+        },
+        "cpu": {
+            "routes": [
+                "/cpu/home",
+                "/cpu/jwc",
+                "/cpu/yjsy"
+            ]
+        },
+        "zimuzu": {
+            "routes": [
+                "/zimuzu/resource/:id?"
+            ]
+        },
+        "huxiu": {
+            "routes": [
+                "/huxiu/tag/:id",
+                "/huxiu/search/:keyword",
+                "/huxiu/author/:id"
+            ]
+        },
+        "steam": {
+            "routes": [
+                "/steam/search/:params",
+                "/steam/news/:appids"
+            ]
+        },
+        "shanbay": {
+            "routes": [
+                "/shanbay/checkin/:id"
+            ]
+        },
+        "facebook": {
+            "routes": [
+                "/facebook/page/:id"
+            ]
+        },
+        "bihu": {
+            "routes": [
+                "/bihu/activaties/:id"
+            ]
+        },
+        "tingdiantz": {
+            "routes": [
+                "/tingdiantz/95598/:orgNo/:provinceNo/:outageStartTime/:outageEndTime/:scope?",
+                "/tingdiantz/95598/:orgNo/:provinceNo/:scope?",
+                "/tingdiantz/nanjing"
+            ]
+        },
+        "36kr": {
+            "routes": [
+                "/36kr/search/article/:keyword"
+            ]
+        },
+        "icourse163": {
+            "routes": [
+                "/icourse163/newest"
+            ]
+        },
+        "patchwork.kernel.org": {
+            "routes": [
+                "/patchwork.kernel.org/comments/:id"
+            ]
+        },
+        "jingdong": {
+            "routes": [
+                "/jingdong/zhongchou/:type/:status/:sort"
+            ]
+        },
+        "taobao": {
+            "routes": [
+                "/taobao/zhongchou/:type?"
+            ]
+        },
+        "allpoetry": {
+            "routes": [
+                "/allpoetry/:order?"
+            ]
+        },
+        "wallstreetcn": {
+            "routes": [
+                "/wallstreetcn/news/global"
+            ]
+        },
+        "duozhuayu": {
+            "routes": [
+                "/duozhuayu/search/:wd"
+            ]
+        },
+        "cyzone": {
+            "routes": [
+                "/cyzone/author/:id",
+                "/cyzone/label/:name"
+            ]
+        },
+        "gov": {
+            "routes": [
+                "/gov/zhengce/zuixin",
+                "/gov/zhengce/wenjian/:pcodeJiguan?",
+                "/gov/province/:name/:category",
+                "/gov/city/:name/:category",
+                "/gov/mee/gs"
+            ]
+        },
+        "xiaoheihe": {
+            "routes": [
+                "/xiaoheihe/user/:id",
+                "/xiaoheihe/news",
+                "/xiaoheihe/discount"
+            ]
+        },
+        "fitchratings": {
+            "routes": [
+                "/fitchratings/site/:type"
+            ]
+        },
+        "mpaypass": {
+            "routes": [
+                "/mpaypass/news",
+                "/mpaypass/main/:type?"
+            ]
+        },
+        "sina": {
+            "routes": [
+                "/sina/discovery/:type",
+                "/sina/rollnews",
+                "/sina/csj"
+            ]
+        },
+        "animen": {
+            "routes": [
+                "/animen/news/:type"
+            ]
+        },
+        "d2": {
+            "routes": [
+                "/d2/daily"
+            ]
+        },
+        "ebb": {
+            "routes": [
+                "/ebb"
+            ]
+        },
+        "indienova": {
+            "routes": [
+                "/indienova/article"
+            ]
+        },
+        "jpmorganchase": {
+            "routes": [
+                "/jpmorganchase"
+            ]
+        },
+        "meipai": {
+            "routes": [
+                "/meipai/user/:uid"
+            ]
+        },
+        "duozhi": {
+            "routes": [
+                "/duozhi"
+            ]
+        },
+        "dockerhub": {
+            "routes": [
+                "/dockerhub/build/:owner/:image/:tag?"
+            ]
+        },
+        "woshipm": {
+            "routes": [
+                "/woshipm/popular",
+                "/woshipm/bookmarks/:id",
+                "/woshipm/user_article/:id"
+            ]
+        },
+        "gaoqing": {
+            "routes": [
+                "/gaoqing/latest"
+            ]
+        },
+        "wenku8": {
+            "routes": [
+                "/wenku8/chapter/:id"
+            ]
+        },
+        "whalegogo": {
+            "routes": [
+                "/whalegogo/home"
+            ]
+        },
+        "aisixiang": {
+            "routes": [
+                "/aisixiang/column/:id",
+                "/aisixiang/ranking/:type?/:range?"
+            ]
+        },
+        "leetcode": {
+            "routes": [
+                "/leetcode/articles",
+                "/leetcode/submission/:country/:user"
+            ]
+        },
+        "segmentfault": {
+            "routes": [
+                "/segmentfault/channel/:name"
+            ]
+        },
+        "hupu": {
+            "routes": [
+                "/hupu/bxj/:id/:order?",
+                "/hupu/bbs/:id/:order?"
+            ]
+        },
+        "nowcoder": {
+            "routes": [
+                "/nowcoder/discuss/:type/:order"
+            ]
+        },
+        "xiaomieu": {
+            "routes": [
+                "/xiaomieu/releases"
+            ]
+        },
+        "security": {
+            "routes": [
+                "/security/pulses"
+            ]
+        },
+        "donews": {
+            "routes": [
+                "/donews/:column?"
+            ]
+        },
+        "wegene": {
+            "routes": [
+                "/wegene/column/:type/:category",
+                "/wegene/newest"
+            ]
+        },
+        "instapaper": {
+            "routes": [
+                "/instapaper/person/:name"
+            ]
+        },
+        "ui-cn": {
+            "routes": [
+                "/ui-cn/article",
+                "/ui-cn/user/:id"
+            ]
+        },
+        "dcard": {
+            "routes": [
+                "/dcard/:section/:type?"
+            ]
+        },
+        "bjp": {
+            "routes": [
+                "/bjp/apod"
+            ]
+        },
+        "luogu": {
+            "routes": [
+                "/luogu/daily/:id?"
+            ]
+        },
+        "juesheng": {
+            "routes": [
+                "/juesheng"
+            ]
+        },
+        "maitta": {
+            "routes": [
+                "/maitta"
+            ]
+        },
+        "blogs": {
+            "routes": [
+                "/blogs/jingwei.link"
+            ]
+        },
+        "uraaka-joshi": {
+            "routes": [
+                "/uraaka-joshi",
+                "/uraaka-joshi/:id"
+            ]
+        },
+        "xici": {
+            "routes": [
+                "/xici/:id?"
+            ]
+        },
+        "taoguba": {
+            "routes": [
+                "/taoguba/index",
+                "/taoguba/user/:uid"
+            ]
+        },
+        "tophub": {
+            "routes": [
+                "/tophub/:id"
+            ]
+        },
+        "vgtime": {
+            "routes": [
+                "/vgtime/news",
+                "/vgtime/release"
+            ]
+        },
+        "mp4ba": {
+            "routes": [
+                "/mp4ba/:param"
+            ]
+        },
+        "anitama": {
+            "routes": [
+                "/anitama/:channel?"
+            ]
+        },
+        "babykingdom": {
+            "routes": [
+                "/babykingdom/:id/:order?"
+            ]
+        },
+        "zjgsu": {
+            "routes": [
+                "/zjgsu/tzgg",
+                "/zjgsu/gsgg",
+                "/zjgsu/xszq"
+            ]
+        },
+        "dianping": {
+            "routes": [
+                "/dianping/user/:id?"
+            ]
+        },
+        "banyuetan": {
+            "routes": [
+                "/banyuetan/:name"
+            ]
+        },
+        "people": {
+            "routes": [
+                "/people/opinion/:id",
+                "/people/xjpjh/:keyword?/:year?"
+            ]
+        },
+        "gamersky": {
+            "routes": [
+                "/gamersky/news",
+                "/gamersky/ent/:category"
+            ]
+        },
+        "yystv": {
+            "routes": [
+                "/yystv/category/:category"
+            ]
+        },
+        "psnine": {
+            "routes": [
+                "/psnine/index",
+                "/psnine/shuzhe",
+                "/psnine/trade",
+                "/psnine/game",
+                "/psnine/news"
+            ]
+        },
+        "zju": {
+            "routes": [
+                "/zju/physics/:type",
+                "/zju/grs/:type",
+                "/zju/career/:type"
+            ]
+        },
+        "infoq": {
+            "routes": [
+                "/infoq/recommend",
+                "/infoq/topic/:id"
+            ]
+        },
+        "checkee": {
+            "routes": [
+                "/checkee/:dispdate"
+            ]
+        },
+        "iresearch": {
+            "routes": [
+                "/iresearch/report"
+            ]
+        },
+        "zaker": {
+            "routes": [
+                "/zaker/source/:id"
+            ]
+        },
+        "matters": {
+            "routes": [
+                "/matters/topics",
+                "/matters/latest",
+                "/matters/hot",
+                "/matters/tags/:tid",
+                "/matters/author/:uid"
+            ]
+        },
+        "mobdata": {
+            "routes": [
+                "/mobdata/report"
+            ]
+        },
+        "tencent": {
+            "routes": [
+                "/tencent/guyu/channel/:name"
+            ]
+        },
+        "gushiwen": {
+            "routes": [
+                "/gushiwen/recommend"
+            ]
+        },
+        "imaijia": {
+            "routes": [
+                "/imaijia/category/:category"
+            ]
+        },
+        "21caijing": {
+            "routes": [
+                "/21caijing/channel/:name"
+            ]
+        },
+        "bupt": {
+            "routes": [
+                "/bupt/yz/:type"
+            ]
+        },
+        "vocus": {
+            "routes": [
+                "/vocus/publication/:id",
+                "/vocus/user/:id"
+            ]
+        },
+        "1point3acres": {
+            "routes": [
+                "/1point3acres/user/:id/threads",
+                "/1point3acres/user/:id/posts"
+            ]
+        },
+        "gdoujwc": {
+            "routes": [
+                "/gdoujwc"
+            ]
+        },
+        "gaoqingla": {
+            "routes": [
+                "/gaoqingla/:tag?"
+            ]
+        },
+        "mlhang": {
+            "routes": [
+                "/mlhang"
+            ]
+        },
+        "ps": {
+            "routes": [
+                "/ps/list/:gridName"
+            ]
+        },
+        "nintendo": {
+            "routes": [
+                "/nintendo/eshop/jp",
+                "/nintendo/eshop/hk",
+                "/nintendo/eshop/us",
+                "/nintendo/news",
+                "/nintendo/direct"
+            ]
+        },
+        "who": {
+            "routes": [
+                "/who/news-room/:type"
+            ]
+        },
+        "metred": {
+            "routes": [
+                "/metred/fuli"
+            ]
+        },
+        "mit": {
+            "routes": [
+                "/mit/graduateadmissions/:type/:name"
+            ]
+        },
+        "kpmg": {
+            "routes": [
+                "/kpmg/insights"
+            ]
+        },
+        "saraba1st": {
+            "routes": [
+                "/saraba1st/thread/:tid"
+            ]
+        },
+        "gradcafe": {
+            "routes": [
+                "/gradcafe/result/:type",
+                "/gradcafe/result"
+            ]
+        },
+        "the-economist": {
+            "routes": [
+                "/the-economist/gre-vocabulary"
+            ]
+        },
+        "shuhui": {
+            "routes": [
+                "/shuhui/comics/:id"
+            ]
+        },
+        "asahichinese-j": {
+            "routes": [
+                "/asahichinese-j/:category/:subCate",
+                "/asahichinese-j/:category"
+            ]
+        },
+        "asahichinese-f": {
+            "routes": [
+                "/asahichinese-f/:category/:subCate",
+                "/asahichinese-f/:category"
+            ]
+        },
+        "fx678": {
+            "routes": [
+                "/fx678/kx"
+            ]
+        },
+        "soundcloud": {
+            "routes": [
+                "/soundcloud/tracks/:user"
+            ]
+        },
+        "dilidili": {
+            "routes": [
+                "/dilidili/fanju/:id"
+            ]
+        },
+        "qtfyfl": {
+            "routes": [
+                "/qtfyfl/:category"
+            ]
+        },
+        "paidai": {
+            "routes": [
+                "/paidai",
+                "/paidai/bbs",
+                "/paidai/news"
+            ]
+        },
+        "boc": {
+            "routes": [
+                "/boc/whpj/:format?"
+            ]
+        },
+        "manhuadb": {
+            "routes": [
+                "/manhuadb/comics/:id"
+            ]
+        },
+        "guanchazhe": {
+            "routes": [
+                "/guanchazhe/topic/:id"
+            ]
+        },
+        "hpoi": {
+            "routes": [
+                "/hpoi/:category/:words"
+            ]
+        },
+        "swufe": {
+            "routes": [
+                "/swufe/seie/:type?"
+            ]
+        },
+        "yuque": {
+            "routes": [
+                "/yuque/doc/:repo_id"
+            ]
+        },
+        "enclavebooks": {
+            "routes": [
+                "/enclavebooks/category/:id?"
+            ]
+        },
+        "dsndsht23": {
+            "routes": [
+                "/dsndsht23/:subforumid",
+                "/dsndsht23"
+            ]
+        },
+        "digitaling": {
+            "routes": [
+                "/digitaling/index",
+                "/digitaling/articles/:category/:subcate",
+                "/digitaling/projects/:category"
+            ]
+        },
+        "bing": {
+            "routes": [
+                "/bing"
+            ]
+        },
+        "maxnews": {
+            "routes": [
+                "/maxnews/dota2"
+            ]
+        },
+        "ningmeng": {
+            "routes": [
+                "/ningmeng/song"
+            ]
+        },
+        "steamgifts": {
+            "routes": [
+                "/steamgifts/discussions/:category?"
+            ]
+        },
+        "zzz": {
+            "routes": [
+                "/zzz"
+            ]
+        },
+        "algocasts": {
+            "routes": [
+                "/algocasts"
+            ]
+        },
+        "aqicn": {
+            "routes": [
+                "/aqicn/:city"
+            ]
+        },
+        "maoyan": {
+            "routes": [
+                "/maoyan/hot",
+                "/maoyan/upcoming"
+            ]
+        },
+        "cnbeta": {
+            "routes": [
+                "/cnbeta"
+            ]
+        }
+    },
+    "message": "request returned 650 routes"
+}
