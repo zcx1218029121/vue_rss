@@ -63,7 +63,7 @@ export default {
 </script>
 <style lang="stylus" rel="stylesheet/stylus"  >
 @import url('../../common/stylus/main.css');
-@import url('../../common/fonts/iconfont.css');
+@import url('../../common/stylus/iconfont.css');
 
 *, *:before, *:after {
   box-sizing: inherit;
@@ -152,7 +152,7 @@ p, li, time {
   z-index: 1;
   width: 100%;
   height: 500px;
-  background: url('../../assets/zg.jpg') no-repeat center center; // hbimg.huabanimg.com/344c7e6763ac3ac6a516a0e96c9acf1315b0c8702a6c5-rwyZan_fw658) no-repeat center center;
+  background: url('../../../static/drawable/zg.jpg') no-repeat center center; // hbimg.huabanimg.com/344c7e6763ac3ac6a516a0e96c9acf1315b0c8702a6c5-rwyZan_fw658) no-repeat center center;
   background-size: cover;
   background-attachment: fixed;
 }

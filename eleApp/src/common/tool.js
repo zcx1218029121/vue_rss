@@ -1,4 +1,3 @@
-// 解决遮罩层滚动穿透问题，分别在遮罩层弹出后和关闭前调用
 let _scrollTop
 class ModalHelper {
   // popup 显示时调用

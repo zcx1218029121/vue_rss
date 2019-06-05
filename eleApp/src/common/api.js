@@ -1,7 +1,8 @@
 import axios from 'axios'
-// 带token的get
-// @params 所带参数
-export const rootNet = 'http://248n89g240.wicp.vip:16764/'
+/**
+ * The root directory of the website with the "/"
+ */
+export const rootNet = 'http://120.79.55.82:8080/'
 
 var doGetWithToken = function (subNet, params) {
   /**
@@ -25,7 +26,12 @@ var doGet = function (subNet, headers, params) {
     params: params
   })
 }
-
+/**
+ *
+ * @param {*String} subNet
+ * @param {*parms}  params
+ * @return
+ */
 var doPostWithToken = function (subNet, params) {
   return axios({
     method: 'POST',
