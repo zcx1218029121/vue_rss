@@ -5,7 +5,6 @@ import App from './App'
 import router from './router'
 import './common/stylus/fonts.styl'
 import BootstrapVue from 'bootstrap-vue'
-
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
@@ -21,6 +20,7 @@ new Vue({
   template: '<App/>'
 
 })
+
 // 全局导航钩子
 router.beforeEach((to, from, next) => {
   if (to.meta.requireAuth) {

@@ -7,7 +7,7 @@
                class="icon"
                rounded="circle"
                fluid
-               src="https://picsum.photos/250/250/?image=54"
+               v-bind:src="user.head_icon"
                alt="Image 1"></b-img>
       </div>
       <div class="content">
@@ -106,6 +106,7 @@
 import axios from 'axios'
 import json from '../seller/routes.json'
 import { doGetWithToken, rootNet } from '../../common/api'
+
 export default {
   data () {
     return {
@@ -115,7 +116,8 @@ export default {
       data: json,
       selected: {},
       selectedsub: '',
-      ca1: []
+      ca1: [],
+      user: {}
     }
   },
   methods: {
@@ -142,9 +144,13 @@ export default {
           alert('取消关注失败')
         }
       })
+    },
+    getData: function () {
+      doGetWithToken('/me').then((r) => { this.user = r.data })
     }
   },
   mounted () {
+    this.getData()
     this.$router.rm = []
     // 获取所有路由分
     this.username = localStorage.getItem('username')

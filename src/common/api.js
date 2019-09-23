@@ -1,8 +1,10 @@
 import axios from 'axios'
+
 /**
  * The root directory of the website with the "/"
  */
-export const rootNet = 'http://120.79.55.82:8080/'
+export const root = 'http://localhost:80/api/'
+export const rootNet = '/api/'
 
 var doGetWithToken = function (subNet, params) {
   /**

@@ -19,13 +19,8 @@
              class="card-40 social">
       <!-- start figure-->
       <figure>
-        <a class="ribbon-buy popular"
-           @click.stop="isRead(item)"
-           href="javascript:;"
-           title="Popular">
-          mark
-        </a>
-        <a href="javascript:;"><img onerror="this.src='https://hbimg.huabanimg.com/344c7e6763ac3ac6a516a0e96c9acf1315b0c8702a6c5-rwyZan_fw658'"
+        <a href="javascript:;">
+          <img onerror="this.src='https://hbimg.huabanimg.com/344c7e6763ac3ac6a516a0e96c9acf1315b0c8702a6c5-rwyZan_fw658'"
                referrer="no-referrer|origin|unsafe-url"
                v-bind:src="getimg(index)">
         </a>
@@ -42,23 +37,21 @@
               已关注
             </a>
             <img class="avatar-32"
-                 src="http://www.qdaily.com/favicon.ico"
+                 v-bind:src="item.source_icon"
                  alt="Avatar">
             <strong>
               <a title="Full Name">
-                {{item.source}}
+                {{item.source_name}}
               </a>
             </strong>
-            <span><a href="javascript:;"
-                 title="Permalink">更新于</a> &middot; <a href="javascript:;"
-                 title="258 comments">{{item.date}}</a></span>
+            <span style="text-overflow:ellipsis; max-lines: 1"> <a  href="javascript:;"
+                 title="258 comments">{{item.time}}</a></span>
           </p>
         </header>
         <a a
            href="javascript:;">
           <!-- 长英文字符串强制换行-->
           <h2 style="word-wrap:break-word;word-break:break-all;">
-
             {{item.title}}
           </h2>
 
@@ -81,7 +74,7 @@
               <h2 style="border-bottom: 1px solid #eee;">{{curItem.title}}</h2>
 
               <p class="zcxContent"
-                 v-html="curItem.des">
+                 v-html="curItem.content">
               </p>
               <footer>
                 <p>
@@ -157,7 +150,7 @@ export default {
   methods: {
     getimg: function (index) {
       // `this` 指向 vm 实例
-      var des = this.data[index].des
+      var des = this.data[index].content
       try {
         var img = des.match(/<img.*?(?:>|\/>)/gi)[0].match(/src=[\\'\\"]?([^\\'\\"]*)[\\'\\"]?/i)[1]
       } catch (e) {
@@ -246,7 +239,7 @@ export default {
       this.$refs.loading.togger(this.isLoading)
 
       this.doGet(this.p++).then((response) => {
-        this.data = response.data.data
+        this.data = response.data.items
         console.log(this.data)
         this.$refs.loading.togger(false)
         if (this.data.length > 0) {
@@ -261,7 +254,7 @@ export default {
     doGet: function (pager) {
       let params = { p: pager }
 
-      return doGetWithToken('rss', params)
+      return doGetWithToken('item', params)
       // 生命周期 当加载的时候————
     },
     scroll () {
@@ -272,14 +265,30 @@ export default {
         this.isLoading = true
         this.doGet(vm.p).then((response) => {
           this.isLoading = false
-          for (var i = 0; i < response.data.data.length; i++) {
-            vm.data.push(response.data.data[i])
+          for (let i = 0; i < response.data.items.length; i++) {
+            vm.data.push(response.data.items[i])
           }
-          if (response.data.data.length <= 0) {
+          if (response.data.items.length <= 0) {
             vm.isend = true
           }
           this.disabled = true
         })
+      }
+    },
+    scrollBottom () {
+      let scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+      let winHeight = document.documentElement.clientHeight || document.body.clientHeight
+      let bodyScrollHeight = 0
+      let documentScrollHeight = 0
+      if (document.body) {
+        bodyScrollHeight = document.body.scrollHeight
+      }
+      if (document.documentElement) {
+        documentScrollHeight = document.documentElement.scrollHeight
+      }
+      let scrollHeight = (bodyScrollHeight - documentScrollHeight > 0) ? bodyScrollHeight : documentScrollHeight
+      if (scrollTop >= parseInt(scrollHeight) - winHeight) { // 如果滚动到接近底部，自动加载下一页
+        this.scroll()
       }
     }
 
@@ -288,6 +297,7 @@ export default {
     this.$router.rm = []
     this.p = 0
     this.getData()
+    window.addEventListener('scroll', this.scrollBottom)
   },
   activated () {
     if (this.$router.sr) {

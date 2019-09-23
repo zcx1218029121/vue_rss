@@ -5,7 +5,7 @@ import ratings from '../components/ratings/ratings.vue'
 import seller from '../components/seller/seller.vue'
 import login from '../components/login/login.vue'
 import main from '../components/main/main.vue'
-
+import source from '../components/source/source'
 Vue.use(Router)
 
 export default new Router({
@@ -14,6 +14,9 @@ export default new Router({
     path: '/',
     component: login
   },
+    {path: '/source',
+    component: source
+    },
   {
     path: '/main',
     component: main,

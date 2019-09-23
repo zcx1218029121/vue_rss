@@ -40,18 +40,25 @@ export default {
       var params = new URLSearchParams()
       params.append('userName', this.un)
       params.append('password', this.pw)
-      if (this.un === 'lt') {
-        alert('欢迎林婷小可爱')
-      }
       console.log(rootNet)
       axios.post(rootNet + 'login', params).then(function (res) {
         console.log(res)
+
         if (res.data.resultCode === 200) {
           localStorage.setItem('token', res.data.token)
-          localStorage.setItem('username', res.data.nickName)
+          localStorage.setItem('username', res.data.nickname)
           r.push({ path: 'main/goods' })
         } else {
           alert('登录失败')
+        }
+      }).catch(function (err) {
+        if (err) {
+          if (err.response.status === 401) {
+            alert('账号或者密码错误')
+          }
+          if (err.response.status === 500) {
+            alert('服务内部错误！')
+          }
         }
       })
     }
