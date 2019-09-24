@@ -1,7 +1,7 @@
 <template>
-
+  <keep-alive>
   <router-view active-class="active"></router-view>
-
+  </keep-alive>
 </template>
 <script>
 export default {

@@ -7,7 +7,9 @@ import './common/stylus/fonts.styl'
 import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
-
+import preview from 'vue-photo-preview'
+import 'vue-photo-preview/dist/skin.css'
+Vue.use(preview)
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)
 /* eslint-disable no-new */
@@ -38,7 +40,7 @@ router.beforeEach((to, from, next) => {
     next()
   }
 })
-
+Vue.prototype.$bus = new Vue()
 function isEmptyObject (obj) {
   for (var key in obj) {
     return false

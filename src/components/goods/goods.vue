@@ -1,7 +1,6 @@
 <template>
   <main role="main">
     <div>
-
       <b-modal id="modal-1"
                title="你完成了阅读！">
         <p class="my-4">恭喜你，完成第一篇阅读,完成的阅读将不再显示在订阅里</p>
@@ -13,15 +12,17 @@
              ref="loading">
     </loading>
     <!-- item 开始-->
+
     <article v-for="(item, index) in data"
              :key="index"
              @click="showDetail(item)"
              class="card-40 social">
       <!-- start figure-->
-      <figure>
-        <a href="javascript:;">
+      <figure >
+        <a href="javascript:;" >
           <img onerror="this.src='https://hbimg.huabanimg.com/344c7e6763ac3ac6a516a0e96c9acf1315b0c8702a6c5-rwyZan_fw658'"
                referrer="no-referrer|origin|unsafe-url"
+               preview="0" preview-text="描述文字"
                v-bind:src="getimg(index)">
         </a>
       </figure>
@@ -164,19 +165,19 @@ export default {
       // 取消订阅
       var flag = confirm('是否取消订阅')
       var params = new URLSearchParams()
-      let sid = vm.data[index].sourceId
+      let sid = vm.data[index].source_id
       params.append('sid', sid)
       if (flag) {
         axios({
           method: 'POST',
-          url: rootNet + `source/unsubscribe`,
+          url: rootNet + `del_subscribe`,
           data: params,
           headers: {
             token: localStorage.getItem('token')
           }
         }).then(function (res) {
           if (res.data.code === 200) {
-            vm.$router.rm.push(vm.data[index].sourceId)
+            vm.$bus.$emit('change')
             alert('取消关注成功')
             for (var i = 0; i < vm.data.length;) {
               if (vm.data[i].sourceId === sid) {
@@ -192,8 +193,6 @@ export default {
               vm.isLoading = true
               vm.scroll()
             }
-
-            vm.$router.sr = true
           } else {
             alert('取消关注失败')
           }
@@ -213,8 +212,11 @@ export default {
       }
     },
     showDetail: function (item) {
-      this.detailTogger(true)
-      this.curItem = item
+      this.$router.push(
+        { path: '/detailed',
+          query: {item: item
+          } }
+      )
     },
     doNoting: function () {
       // 什么都不干就是为了拦截事件冒泡
@@ -287,25 +289,22 @@ export default {
         documentScrollHeight = document.documentElement.scrollHeight
       }
       let scrollHeight = (bodyScrollHeight - documentScrollHeight > 0) ? bodyScrollHeight : documentScrollHeight
-      if (scrollTop >= parseInt(scrollHeight) - winHeight) { // 如果滚动到接近底部，自动加载下一页
+      if (scrollTop >= parseInt(scrollHeight) - winHeight - 10) { // 如果滚动到接近底部，自动加载下一页
         this.scroll()
       }
     }
 
   },
-  mounted () {
-    this.$router.rm = []
-    this.p = 0
+  mounted (){
+
     this.getData()
     window.addEventListener('scroll', this.scrollBottom)
   },
   activated () {
-    if (this.$router.sr) {
-      this.data = {}
+    this.$bus.$on('change', () => {
       this.p = 0
       this.getData()
-      this.$router.sr = false
-    }
+    })
   },
   beforeDestroy () {
     console.log('a')

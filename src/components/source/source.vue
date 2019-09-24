@@ -1,4 +1,5 @@
 <template>
+  <keep-alive>
   <div class="warrp">
   <div class="header_info">
     <div class="image">
@@ -17,11 +18,12 @@
     </div>
   </div>
     <b-list-group>
-      <b-list-group-item v-for="(item, index) in this.items" :key="index" @click="goDetill(item.link)">
+      <b-list-group-item v-for="(item, index) in this.items" :key="index" @click="goDetill(item)">
        <p class="item-content" >{{item.title}}</p>
       </b-list-group-item>
     </b-list-group>
   </div>
+  </keep-alive>
 </template>
 
 <script>
@@ -34,17 +36,31 @@ export default {
     }
   },
   methods: {
-    goDetill: function (url) {
-      window.location.href = url
+    goDetill: function (item) {
+      this.$router.push(
+        { path: '/detailed',
+          query: {item: item
+          } }
+      )
     }
   },
   name: 'source',
-  mounted () {
-    this.source = this.$route.query.source
-
-    doGetWithToken('source_detail?sid=' + this.source.sid).then((r) => {
-      this.items = r.data.items
-    })
+  activated () {
+    if (!this.$route.meta.isBack) {
+      this.source = this.$route.query.source
+      doGetWithToken('source_detail?sid=' + this.source.sid).then((r) => {
+        this.items = r.data.items
+      })
+    }
+    this.$route.meta.isBack = false
+  },
+  beforeRouteEnter (to, from, next) {
+    if (from.path === '/main/ratings') {
+      to.meta.isBack = false
+    } else {
+      to.meta.isBack = true
+    }
+    next()
   }
 }
 </script>

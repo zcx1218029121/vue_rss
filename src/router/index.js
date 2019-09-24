@@ -6,16 +6,29 @@ import seller from '../components/seller/seller.vue'
 import login from '../components/login/login.vue'
 import main from '../components/main/main.vue'
 import source from '../components/source/source'
+import newDetalis from '../components/newdetalis/newDetalis'
+import singup from '../components/signup/singup'
 Vue.use(Router)
 
 export default new Router({
 
   routes: [{
-    path: '/',
+    path: '/login',
     component: login
+  },{
+    path: '/',
+    component: singup
+  },
+    {
+      path: '/detailed',
+      component: newDetalis
   },
     {path: '/source',
-    component: source
+    component: source,
+      meta: {
+        keepAlive:true,
+        isBack: false
+      }
     },
   {
     path: '/main',

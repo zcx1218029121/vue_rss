@@ -12,7 +12,7 @@
       </div>
       <div class="content">
         <div class="title">
-          <h2>{{username}}</h2>
+          <h2>{{user.nickname}}</h2>
         </div>
 
       </div>
@@ -42,8 +42,9 @@
                          :options="getCa2"></b-form-select>
         </b-input-group>
         <label class="sr-only"
-               for="inline-form-input-username">Username</label>
+               >Username</label>
         <b-input-group prepend="参数"
+                       v-model="param"
                        v-show="haveParms"
                        class="mb-2 mr-sm-2 mb-sm-0"
                        style="  padding: 10px;">
@@ -54,8 +55,18 @@
                        class="mb-2 mr-sm-2 mb-sm-0"
                        style="  padding: 10px;">
           <b-input id="inline-form-input-username"
+                   v-model="s_name"
                    required
                    placeholder="源的名字"></b-input>
+        </b-input-group>
+
+        <b-input-group prepend="源的图标"
+                       v-model="s_icon"
+                       class="mb-2 mr-sm-2 mb-sm-0"
+                       style="  padding: 10px;">
+          <b-input id="inline-form-input-username"
+                   required
+                   placeholder="源的图标"></b-input>
         </b-input-group>
         <!--
           <b-form-file v-model="file"
@@ -64,65 +75,153 @@
                        drop-placeholder="可以为空"></b-form-file>-->
         <b-button type="submit"
                   class="button"
+                  style="width: 100%"
                   variant="primary"
                   @click="dopost()">提交</b-button>
 
       </b-collapse>
       <b-list-group-item button
                          class="item"
-                         v-b-toggle.collapse-2>管理订阅源</b-list-group-item>
+                         v-b-toggle.collapse-2>添加订阅源</b-list-group-item>
       <b-collapse id="collapse-2"
                   class="mt-2">
-
-        <!--标题栏-->
-        <div>
-          <b-media class="s_media"
-                   v-for="(item, index) in scource"
-                   :key="index">
-            <b-img left
-                   src="http://www.qdaily.com/favicon.ico"
-                   alt="Left image"
-                   class="icon_source "></b-img>
-            <div class="content">
-              <h5 class="title">{{item.name}} </h5>
-              <div class="button">
-                <b-button variant="success"
-                          @click='unsubscribe(index)'>取消</b-button>
-              </div>
-            </div>
-          </b-media>
-
-        </div>
+        <b-input-group prepend="url"
+                       class="mb-2 mr-sm-2 mb-sm-0"
+                       style="  padding: 10px;">
+          <b-input id="inline-form-input-username"
+                   v-model="s_url"
+                   required
+                   placeholder="源的utl"></b-input>
+        </b-input-group>
+        <b-input-group prepend="源的图标"
+                       class="mb-2 mr-sm-2 mb-sm-0"
+                       style="  padding: 10px;">
+          <b-input id="inline-form-input-username"
+                   v-model="s_icon"
+                   required
+                   placeholder="源的图标"></b-input>
+        </b-input-group>
+        <b-input-group prepend="源的名字"
+                       class="mb-2 mr-sm-2 mb-sm-0"
+                       style="  padding: 10px;">
+          <b-input id="inline-form-input-username"
+                   v-model="s_name"
+                   required
+                   placeholder="源的名字"></b-input>
+        </b-input-group>
+        <b-input-group prepend="range"
+                       class="mb-2 mr-sm-2 mb-sm-0"
+                       style="  padding: 10px;">
+          <b-input id="inline-form-input-username"
+                   v-model="range"
+                   required
+                   placeholder="range"></b-input>
+        </b-input-group>
+        <b-button type="submit"
+                  class="button"
+                  style="width: 100%"
+                  variant="primary"
+                  @click="dopost2()">提交</b-button>
       </b-collapse>
       <b-list-group-item button
-                         disabled>收藏</b-list-group-item>
+                         class="item"
+                         v-b-toggle.collapse-3>修改用户信息</b-list-group-item>
+      <b-collapse id="collapse-3"
+                  class="mt-2">
+        <b-input-group prepend="昵称"
+                       class="mb-2 mr-sm-2 mb-sm-0"
+                       style="  padding: 10px;">
+          <b-input id="inline-form-input-username"
+                   v-model="nickName"
+                   required
+                   placeholder="昵称"></b-input>
+        </b-input-group>
+        <b-input-group prepend="密码"
+                       class="mb-2 mr-sm-2 mb-sm-0"
+                       style="  padding: 10px;"
+
+        >
+          <input id="type-password" type="password" v-model="passWord" class="form-control">
+
+        </b-input-group>
+        <b-input-group prepend="头像链接"
+                       class="mb-2 mr-sm-2 mb-sm-0"
+                       style="  padding: 10px;">
+          <b-input id="inline-form-input-username"
+                   v-model="u_icon"
+                   required
+                   placeholder="头像链接"></b-input>
+        </b-input-group>
+        <b-button type="submit"
+                  class="button"
+                  style="width: 100%"
+                  variant="primary"
+                  @click="dopost3()">提交</b-button>
+      </b-collapse>
     </b-list-group>
 
   </div>
 </template>
 
 <script>
-
+  import crypto from 'crypto'
 import axios from 'axios'
 import json from '../seller/routes.json'
-import { doGetWithToken, rootNet } from '../../common/api'
+import { doGetWithToken, rootNet,doPostWithToken } from '../../common/api'
 
 export default {
   data () {
     return {
+      range: 3,
+      s_url: '',
+      s_icon: '',
+      s_name: '',
       username: '',
+      nickName: '',
+      passWord: '',
       scource: [],
+      u_icon: '',
       hp: false,
       data: json,
       selected: {},
       selectedsub: '',
       ca1: [],
-      user: {}
+      user: {},
+      param: ''
     }
   },
   methods: {
     dopost: function () {
       alert('添加的源经过管理员审核后,将出现在您的订阅中')
+    },
+    dopost2: function () {
+      let params = new URLSearchParams()
+      params.append('source_name', this.s_name)
+      params.append('url', this.s_url)
+      params.append('range', this.range)
+      params.append('source_icon', this.s_icon)
+      doPostWithToken('add_source',params).then((r) => {
+        if (r.status === 200) {
+          alert('添加成功')
+        }
+      }).catch((r) => {
+        alert('您的权限不足')
+      })
+      axios.post(rootNet + '/add_source')
+    },
+    dopost3: function () {
+      let params = new URLSearchParams()
+      params.append('icon', this.u_icon)
+      params.append('password', this.passWord)
+      params.append('nickName', this.nickName)
+      doPostWithToken('update_user', params).then((r) => {
+        if (r.status === 200) {
+          alert('修改成功')
+          this.getData()
+        }
+      }).catch((r) => {
+        alert('您的权限不足')
+      })
     },
     unsubscribe: function (index) {
       var vm = this

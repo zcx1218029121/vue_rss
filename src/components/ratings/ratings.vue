@@ -11,7 +11,7 @@
                                    v-bind:src="item.source_icon"
                                    alt="Left image"
                                    class="icon_source "
-        ></b-img>{{item.source_name}}<b-button @click.stop="unsubscribe(item.sid)" variant="success"
+        ></b-img>{{item.source_name}}<b-button @click.stop="unsubscribe(index)" variant="success"
                                                style="right: 2px;">
                                 <div v-if="isSubscribe(item)">关注</div>
           <div v-else>
@@ -61,10 +61,10 @@ export default {
     unsubscribe: function (index) {
       var vm = this
       // 取消订阅
-      if (this.isSubscribe(index)) {
+      if (this.isSubscribe(vm.source[index])) {
         var params = new URLSearchParams()
-
-        params.append('sid', this.source[index].sid)
+        console.log(vm.source[index])
+        params.append('sid', vm.source[index].sid)
         axios({
           method: 'POST',
           url: rootNet + `add_subscribe`,
@@ -74,26 +74,28 @@ export default {
           }
         }).then(function (res) {
           if (res.data.code === 200) {
-            vm.data.push(this.source[index].sid)
+            vm.data.push(vm.source[index].sid)
+            vm.$bus.$emit('change')
           } else {
             alert('关注失败')
           }
         })
       } else {
         let params = new URLSearchParams()
-        params.append('sid', vm.data[index].sourceId)
+        console.log(vm.source[index].sid)
+        params.append('sid', vm.source[index].sid)
         axios({
           method: 'POST',
-          url: rootNet + `source/unsubscribe`,
+          url: rootNet + `del_subscribe`,
           data: params,
           headers: {
             token: localStorage.getItem('token')
           }
         }).then(function (res) {
           if (res.data.code === 200) {
-            var s = vm.source.indexOf(vm.data[index].sourceId)
-            vm.source.splice(s, 1)
-            vm.$router.sr = true
+            vm.$bus.$emit('change')
+            var s = vm.data.indexOf(vm.source[index].sid)
+            vm.data.splice(s, 1)
           } else {
             alert('取消关注失败')
           }
@@ -106,7 +108,7 @@ export default {
     detail: function (source) {
       this.$router.push({path: '/source',
         query: {source: source
-      }})
+       }})
     },
     doLove: function () {
       alert('功能还在开发')
