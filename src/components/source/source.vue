@@ -12,8 +12,11 @@
       <span>
         {{this.source.source_name}}
       </span>
-      <b-button class="add">
-        关注
+      <b-button class="add" @click="unsubscribe">
+        <div v-if="isSubscribe">关注</div>
+        <div v-else>
+          取消
+        </div>
       </b-button>
     </div>
   </div>
@@ -27,12 +30,14 @@
 </template>
 
 <script>
-  import { doGetWithToken } from '../../common/api'
+import axios from 'axios'
+import { doGetWithToken, rootNet } from '../../common/api'
 export default {
   data () {
     return {
       source: {},
-      items: { }
+      items: { },
+      isSubscribe: true
     }
   },
   methods: {
@@ -42,12 +47,58 @@ export default {
           query: {item: item
           } }
       )
+    },
+    // eslint-disable-next-line vue/no-dupe-keys
+    unsubscribe: function (index) {
+      var vm = this
+      // 取消订阅
+      if (this.isSubscribe) {
+        var params = new URLSearchParams()
+        console.log(vm.source[index])
+        params.append('sid', vm.source.sid)
+        axios({
+          method: 'POST',
+          url: rootNet + `add_subscribe`,
+          data: params,
+          headers: {
+            token: localStorage.getItem('token')
+          }
+        }).then(function (res) {
+          if (res.data.code === 200) {
+            vm.isSubscribe = !vm.isSubscribe
+            vm.$bus.$emit('change')
+          } else {
+            alert('关注失败')
+          }
+        })
+      } else {
+        let params = new URLSearchParams()
+        console.log(vm.source.sid)
+        params.append('sid', vm.source.sid)
+        axios({
+          method: 'POST',
+          url: rootNet + `del_subscribe`,
+          data: params,
+          headers: {
+            token: localStorage.getItem('token')
+          }
+        }).then(function (res) {
+          if (res.data.code === 200) {
+            vm.$bus.$emit('change')
+            vm.isSubscribe = !vm.isSubscribe
+            alert('取消关注成功')
+          } else {
+            alert('取消关注失败')
+          }
+        })
+      }
     }
   },
   name: 'source',
   activated () {
     if (!this.$route.meta.isBack) {
       this.source = this.$route.query.source
+      this.isSubscribe = this.$route.query.isSubscribe
       doGetWithToken('source_detail?sid=' + this.source.sid).then((r) => {
         this.items = r.data.items
       })

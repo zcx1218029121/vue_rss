@@ -107,8 +107,9 @@ export default {
     },
     detail: function (source) {
       this.$router.push({path: '/source',
-        query: {source: source
-       }})
+        query: {source: source,
+          isSubscribe: this.isSubscribe(source)
+        }})
     },
     doLove: function () {
       alert('功能还在开发')
@@ -131,7 +132,6 @@ export default {
     scroll () {
       this.p = this.p + 1
       var vm = this
-
       if (this.isLoading === false && vm.isend === false) {
         this.isLoading = true
         this.doGet(vm.p).then((response) => {
@@ -156,6 +156,12 @@ export default {
       }
     }
     // return this.source.indexOf(this.data[0].sourceId) === -1
+  },
+  activated () {
+    this.$bus.$on('change', () => {
+      this.p = 0
+      this.getData()
+    })
   },
   mounted () {
     this.p = 0

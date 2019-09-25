@@ -1,6 +1,9 @@
 <!--- 详情页组件!-->
 <template>
   <!-- Hover Demo-->
+  <div class="warrp">  <div class="act-form" v-if="isShow">
+    <iframe :src="item.link"   ref="iframe"></iframe>
+  </div>
   <div class="column">
 
     <!-- Post-->
@@ -18,31 +21,35 @@
         <h1 class="title">{{item.title}}</h1>
         <h2 class="sub_title">{{item.source_name}}</h2>
         <p class="description" v-html="item.content"></p>
-        <div class="post-meta"><a v-bind:href="item.link">查看原文</a></div>
+        <div class="post-meta"><a @click="showurl">查看原文</a></div>
       </div>
     </div>
   </div>
-
+  </div>
 </template>
 <script>
-  export default {
-    name: 'detail',
-    data () {
-      return {
-        isShow: false,
-        data: {},
-        item: {}
-      }
+export default {
+  name: 'detail',
+  data () {
+    return {
+      isShow: false,
+      data: {},
+      item: {}
+    }
+  },
+  activated () {
+    this.item = this.$route.query.item
+    this.isShow = false
+  },
+  methods: {
+    showurl: function () {
+      this.isShow = !this.isShow
     },
-    activated () {
-      this.item = this.$route.query.item
-    },
-    methods:{
-      getMon: function () {
-        return this.item.time.split(',')[0]
-      }
+    getMon: function () {
+      return this.item.time.split(',')[0]
     }
   }
+}
 </script>
 <style lang="stylus" scoped>
   html, body {
@@ -240,5 +247,18 @@
 
   .container .info span .fa {
     color: #e74c3c;
+  }
+  .act-form{
+    background white
+    height:100%;
+    width:100%;
+    /*width: 100%;*/
+    position:
+  fixed;
+    z-index 999
+  }
+  .act-form iframe{
+    height:100%;
+    width:100%;
   }
 </style>

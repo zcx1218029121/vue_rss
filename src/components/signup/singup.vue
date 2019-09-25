@@ -26,6 +26,8 @@
             <a href="#forgot">Forgot Password?</a>
           </div>
         </div>
+
+        <!--- 注册   !--->
         <div class="sign-up-htm">
           <div class="group">
             <label for="user" class="label">Username</label>
@@ -36,15 +38,19 @@
             <input v-model="pw"  type="password" class="input" data-type="password">
           </div>
           <div class="group">
-            <label for="pass" class="label">Repeat Password</label>
-            <input  type="password" class="input" data-type="password">
+            <label for="pass" class="label">昵称</label>
+            <input  type="text" v-model="nickName" class="input" >
           </div>
           <div class="group">
             <label for="pass" class="label">icon</label>
-            <input id="pass" type="text" class="input">
+            <input id="pass" v-model="icon" type="text" class="input">
           </div>
           <div class="group">
-            <input type="submit" class="button" value="Sign Up">
+            <label for="user" class="label">Invitation code</label>
+            <input  id="Invitation code" v-model="code" type="text" class="input">
+          </div>
+          <div class="group">
+            <input type="submit" @click="dosingUp" class="button" value="Sign Up">
           </div>
           <div class="hr"></div>
           <div class="foot-lnk">
@@ -57,22 +63,29 @@
 </template>
 
 <script>
-import { rootNet } from '../../common/api'
+// eslint-disable-next-line standard/object-curly-even-spacing
+import crypto from 'crypto'
+// eslint-disable-next-line standard/object-curly-even-spacing
+import { rootNet, doPostWithToken} from '../../common/api'
 import axios from 'axios'
 export default {
   name: 'singup',
   data () {
     return {
       un: '',
-      pw: ''
+      pw: '',
+      nickName: '',
+      icon: '',
+      code: ''
     }
   },
   methods: {
     doLogin: function () {
-      var r = this.$router
-      var params = new URLSearchParams()
+      const r = this.$router
+      const params = new URLSearchParams()
+      const md5 = crypto.createHash('md5').update(this.pw).digest('hex')
       params.append('userName', this.un)
-      params.append('password', this.pw)
+      params.append('password', md5)
       console.log(rootNet)
       axios.post(rootNet + 'login', params).then(function (res) {
         console.log(res)
@@ -95,8 +108,24 @@ export default {
         }
       })
     },
-    dosingup: function () {
-
+    dosingUp: function () {
+      let params = new URLSearchParams()
+      params.append('name', this.un)
+      const md5 = crypto.createHash('md5').update(this.pw).digest('hex')
+      params.append('password', md5)
+      params.append('nickName', this.nickName)
+      params.append('code', this.code)
+      params.append('icon', this.icon)
+      doPostWithToken('registered', params).then(function (r) {
+        // eslint-disable-next-line no-unused-expressions
+        if (r.data.code === 200) {
+          alert('注册成功')
+        } else if (r.data.code === 501) {
+          alert('重复的用户名')
+        } else if (r.data.code === 502) {
+          alert('错误的邀请码')
+        }
+      })
     }
   }
 }

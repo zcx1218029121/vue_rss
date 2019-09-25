@@ -1,6 +1,20 @@
 <template>
   <div>
-
+    <div>
+      <b-modal id="modalPopover" title="修改用户等级"  hide-footer>
+        <b-input-group prepend="range"
+                       class="mb-2 mr-sm-2 mb-sm-0"
+                       style="  padding: 10px;">
+          <b-input id="inline-form-input-username"
+                   v-model="newRange"
+                   required
+                   placeholder="range"></b-input>
+          <b-button @click="postRange">
+            ok
+          </b-button>
+        </b-input-group>
+      </b-modal>
+    </div>
     <div class="header">
       <div class="left_image">
         <b-img thumbnail
@@ -152,11 +166,37 @@
                    required
                    placeholder="头像链接"></b-input>
         </b-input-group>
+        <b-input-group
+                       class="mb-2 mr-sm-2 mb-sm-0"
+                       style="  padding: 10px;">
+         邀请码 {{this.user.code}}
+        </b-input-group>
         <b-button type="submit"
                   class="button"
                   style="width: 100%"
                   variant="primary"
                   @click="dopost3()">提交</b-button>
+      </b-collapse>
+
+      <b-list-group-item button
+                         v-if="user.range === 0"
+                         class="item"
+                         v-b-toggle.collapse-4>管理用户权限</b-list-group-item>
+      <b-collapse id="collapse-4">
+        <b-list-group-item style=" display: flex;justify-content:space-between" v-for="(item, index) in this.users" :key="index"
+        @click="changeUser(item)"> <b-img left
+                 v-bind:src="item.head_icon"
+                 alt="Left image"
+                 class="icon_source "
+        ></b-img>{{item.name}}
+         <b-button  variant="success"
+                                               style="right: 2px;">
+          {{item.range}}
+          </b-button>
+        </b-list-group-item>
+      </b-collapse>
+      <b-collapse id="collapse-4"
+                  class="mt-2">
       </b-collapse>
     </b-list-group>
 
@@ -164,10 +204,10 @@
 </template>
 
 <script>
-  import crypto from 'crypto'
+import crypto from 'crypto'
 import axios from 'axios'
 import json from '../seller/routes.json'
-import { doGetWithToken, rootNet,doPostWithToken } from '../../common/api'
+import { doGetWithToken, rootNet, doPostWithToken } from '../../common/api'
 
 export default {
   data () {
@@ -179,7 +219,7 @@ export default {
       username: '',
       nickName: '',
       passWord: '',
-      scource: [],
+      users: [],
       u_icon: '',
       hp: false,
       data: json,
@@ -187,7 +227,8 @@ export default {
       selectedsub: '',
       ca1: [],
       user: {},
-      param: ''
+      selectUser: {},
+      newRange: ''
     }
   },
   methods: {
@@ -200,7 +241,7 @@ export default {
       params.append('url', this.s_url)
       params.append('range', this.range)
       params.append('source_icon', this.s_icon)
-      doPostWithToken('add_source',params).then((r) => {
+      doPostWithToken('add_source', params).then((r) => {
         if (r.status === 200) {
           alert('添加成功')
         }
@@ -211,8 +252,9 @@ export default {
     },
     dopost3: function () {
       let params = new URLSearchParams()
+      const md5 = crypto.createHash('md5').update(this.passWord).digest('hex')
       params.append('icon', this.u_icon)
-      params.append('password', this.passWord)
+      params.append('password', md5)
       params.append('nickName', this.nickName)
       doPostWithToken('update_user', params).then((r) => {
         if (r.status === 200) {
@@ -223,39 +265,32 @@ export default {
         alert('您的权限不足')
       })
     },
-    unsubscribe: function (index) {
-      var vm = this
-      var params = new URLSearchParams()
-      params.append('sid', this.scource[index].sid)
-      axios({
-        method: 'POST',
-        url: rootNet + `source/unsubscribe`,
-        data: params,
-        headers: {
-          token: localStorage.getItem('token')
-        }
-      }).then(function (res) {
+    postRange: function () {
+      let params = new URLSearchParams()
+      params.append('range', this.newRange)
+      params.append('uid', this.selectUser.id)
+      doPostWithToken('change_user_range', params).then(function (res) {
         if (res.data.code === 200) {
-          vm.$router.rm.push(vm.scource[index].sid)
-          vm.$router.sr = true
-          vm.scource.splice(index, 1)
-        } else {
-          alert('取消关注失败')
+          alert('修改成功')
+          this.$bvModal.hide('modalPopover')
+          this.getData()
         }
       })
     },
     getData: function () {
-      doGetWithToken('/me').then((r) => { this.user = r.data })
+      doGetWithToken('me').then((r) => { this.user = r.data })
+    },
+    changeUser: function (user) {
+      this.selectUser = user
+      this.$bvModal.show('modalPopover')
+      this.users = []
+      doGetWithToken('all_user', null).then((r) => {
+        this.users = r.data.users
+      })
     }
   },
   mounted () {
     this.getData()
-    this.$router.rm = []
-    // 获取所有路由分
-    this.username = localStorage.getItem('username')
-    for (var x in json.data) {
-      this.ca1.push(x)
-    }
   },
   computed: {
     getCa2: function () {
@@ -272,9 +307,8 @@ export default {
 
   },
   activated () {
-    doGetWithToken('source', null).then((r) => {
-      this.scource = r.data.source
-      console.log(r.data)
+    doGetWithToken('all_user', null).then((r) => {
+      this.users = r.data.users
     })
   }
 }
